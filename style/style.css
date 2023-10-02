@@ -1,0 +1,79 @@
+h1 {
+  text-align: center;
+  font-size: 35px;
+  font-family: PT-serif;
+  font-weight: bold;
+}
+.actual-moment {
+  text-align: center;
+  font-family: PT-serif;
+}
+.daily-weather {
+  display: block;
+  max-width: 150px;
+}
+.units {
+  font-size: 15px;
+  position: relative;
+  top: -5px;
+  left: -10px;
+}
+.actual-temperature {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 20px;
+  font-family: PT-serif;
+}
+.weather-description {
+  font-weight: bold;
+  font-size: 24px;
+  position: relative;
+  margin-left: -80px;
+  margin-top: 60px;
+  text-transform: capitalize;
+  font-family: PT-serif;
+}
+.daily-temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.advice {
+  display: block;
+  margin: 50px;
+}
+.card-extrainfo {
+  list-style: none;
+  margin: 10px;
+}
+.precipitation-icon,
+.wind-icon,
+.humidity-icon,
+.uv-icon {
+  height: 40px;
+  margin: 5px 5px;
+}
+.forecast {
+  margin: 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content: start;
+  font-family: PT-serif;
+}
+.row {
+  margin: 0px;
+}
+.week-day {
+  text-align: center;
+  font-weight: bold;
+}
+.card-body {
+  text-align: center;
+}
+.card-img-middle {
+  display: block;
+  margin: 0 auto;
+}
+.max-temperature {
+  font-weight: bold;
+}

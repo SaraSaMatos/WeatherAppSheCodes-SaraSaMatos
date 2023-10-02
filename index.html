@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <form id="city-search">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  placeholder="Search for city"
+                  class="form-control"
+                  id="search-input"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Search" id="search-button" class="btn btn-secondary" />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Current Position" id="currentposition-button" class="btn btn-primary" />
+              </div>
+            </div>
+          </form>
+        </br>
+          <h1>Lisbon</h1>
+          <p class="actual-moment" id="actualDate"> </p>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="daily-temperature">
+                <img
+                  class="daily-weather"
+                  src="Images/iconsnublado.png"
+                  alt="cloudy"
+                />
+                 <span class="actual-temperature" id="temperature">
+                   24
+                 </span>  
+                </br>
+                 <div class= "weather-description" id="weather-description">
+                   Very cloudy 
+                 </div>
+                  <span class="units"> 
+                    <a href= "#" id= "celsius-unit"> °C
+                    </a> |
+                    <a href="#" id= "fahrenheit-unit"> °F 
+                    </a>
+                  </span>
+                  
+              </div>
+            </div>
+          </div>
+        </br>
+        <div class="row">
+          <div class="col">
+          <div class="advice">
+            <img
+              src="Images/iconsalerta.png"
+              alt="advice-icon"
+              width="40"
+            />
+            <span class="app-advice">Use sun glasses</span>
+          </div>
+          </div>
+        </div>
+          </br>
+
+<div class="card">
+  <div class="col-12">
+  <div class="row">
+ 
+  <div class="col-6">
+      <img src="Images/iconsvento.png" class="wind-icon" alt="
+    Wind" width="40">
+    <div class="wind-extra-info">
+      Wind
+    </br>
+    <span  id="windValue"> 21 m/sec </span>
+    </div>
+  </div>
+
+    <div class="col-6">
+      <img src="Images/iconshumidade.png" class="humidity-icon" alt="
+    humidity" width="40">
+      <div class="humidity-extra-info">
+      Humidity
+    </br>
+    <span  id="humidityValue">  70% </span>
+      </div>
+    </div>
+
+    </div>
+    </div>  
+  </div>
+
+          <div class="forecast">
+           <strong>Week forecast</strong>
+          </div>
+          </br>
+          <div class="row">
+            <div class="col">
+              <div class="card" style="width: 20">
+                <p class="week-day">Fri. 08 </br> </p>
+                <img
+                  src="Images/iconsnublado.png"
+                  class="card-img-middle"
+                  alt="cloudy"
+                  width="80"
+                />
+                <div class="card-body">
+                  <p> <span class="max-temperature">23 </span>| 19 °C </br>Very cloudy</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" style="width: 20">
+                 <p class="week-day">Sat. 09 </br> </p>
+                <img
+                  src="Images/iconschuvaetrovoada.png"
+                  class="card-img-middle"
+                  alt="rain&tunder"
+                  width="80"
+                />
+                <div class="card-body">
+                 <p> <span class="max-temperature">23 </span>| 19 °C </br>Rain and Tunderstorm</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" style="width: 20">
+                <p class="week-day">Sun. 10 </br> </p>
+                <img
+                  src="Images/iconschuva.png"
+                  class="card-img-middle"
+                  alt="rain"
+                  width="80"
+                />
+                <div class="card-body">
+                  <p> <span class="max-temperature">24 </span>| 18 °C </br>Rain</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" style="width: 20">
+                  <p class="week-day"> Mon. 11 </br> </p>
+                <img
+                  src="Images/iconsnublado.png"
+                  class="card-img-middle"
+                  alt="cloudy"
+                  width="80"
+                />
+                <div class="card-body">
+                  <p><span class="max-temperature">24 </span>| 18 °C </br>Very cloudy</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" style="width: 20">
+                <p class="week-day">Tue. 12 </br> </p>
+                <img
+                  src="Images/iconsnublado.png"
+                  class="card-img-middle"
+                  alt="cloudy"
+                  width="80"
+                />
+                <div class="card-body">
+                  <p> <span class="max-temperature">26 </span>| 19 °C </br>Very cloudy</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="actions.js"></script>
+  </body>
+</html>
+
+
