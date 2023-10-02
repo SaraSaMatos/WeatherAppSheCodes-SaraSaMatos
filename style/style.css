@@ -1,19 +1,23 @@
-.card {
-  max-width: 850px;
+body {
+  font-family: PT-serif;
 }
 h1 {
   text-align: center;
   font-size: 35px;
-  font-family: PT-serif;
   font-weight: bold;
+}
+.card {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
 }
 .actual-moment {
   text-align: center;
-  font-family: PT-serif;
 }
 .daily-weather {
   display: block;
   max-width: 150px;
+  margin-right: 10px;
 }
 .units {
   font-size: 15px;
@@ -25,7 +29,6 @@ h1 {
   font-weight: bold;
   font-size: 24px;
   margin: 20px;
-  font-family: PT-serif;
 }
 .weather-description {
   font-weight: bold;
@@ -34,7 +37,6 @@ h1 {
   margin-left: -80px;
   margin-top: 60px;
   text-transform: capitalize;
-  font-family: PT-serif;
 }
 .daily-temperature {
   display: flex;
@@ -43,16 +45,14 @@ h1 {
 }
 .advice {
   display: block;
-  margin: 50px;
+  margin: 0 10px;
 }
 .card-extrainfo {
   list-style: none;
-  margin: 10px;
+  margin: 5px;
 }
-.precipitation-icon,
 .wind-icon,
-.humidity-icon,
-.uv-icon {
+.humidity-icon {
   height: 40px;
   margin: 5px 5px;
 }
@@ -61,7 +61,6 @@ h1 {
   font-size: 30px;
   display: flex;
   justify-content: start;
-  font-family: PT-serif;
 }
 .row {
   margin: 0px;
@@ -81,7 +80,7 @@ h1 {
   font-weight: bold;
 }
 .code-owner {
-  font-family: PT-serif;
   font-weight: bold;
   margin: 10px 0;
+  text-align: center;
 }
