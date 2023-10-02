@@ -77,3 +77,8 @@ h1 {
 .max-temperature {
   font-weight: bold;
 }
+.code-owner {
+  font-family: PT-serif;
+  font-weight: bold;
+  margin: 10px 0;
+}
