@@ -110,7 +110,40 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+    <div class="col">
+        <div class="card" style="margin-top: 0;">
+          <p class="week-day">${day}. 08 </br> </p>
+          <img
+            src="Images/iconsnublado.png"
+            class="card-img-middle"
+            alt="cloudy"
+            width="80"
+          />
+           <div class="card-body">
+              <p> <span class="max-temperature">23 </span>| 19 °C </br>Very cloudy</p>
+            </div>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 navigator.geolocation.getCurrentPosition(showPosition);
 
 let currentPositionButton = document.querySelector(`#currentposition-button`);
 currentPositionButton.addEventListener("click", getCurrentPosition);
+
+displayForecast();
