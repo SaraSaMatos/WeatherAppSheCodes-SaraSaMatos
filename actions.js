@@ -22,14 +22,23 @@ function dateFormated(date) {
 }
 function fahrenheitUnitsChange(event) {
   event.preventDefault();
-  let fahrenheitUnitsChangeInput = document.querySelector("#temperature");
-  fahrenheitUnitsChangeInput.innerHTML = 75;
+  let currentTemperature = document.querySelector("#temperature");
+
+  celsiusUnits.classList.remove("active");
+  fahrenheitUnits.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
 }
 function celsiusUnitsChange(event) {
   event.preventDefault();
-  let celsiusUnitsChangeInput = document.querySelector("#temperature");
-  celsiusUnitsChangeInput.innerHTML = 24;
+  let currentTemperature = document.querySelector("#temperature");
+
+  fahrenheitUnits.classList.remove("active");
+  celsiusUnits.classList.add("active");
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
 }
+
+let celsiusTemperature = null;
 
 let fahrenheitUnits = document.querySelector("#fahrenheit-unit");
 fahrenheitUnits.addEventListener("click", fahrenheitUnitsChange);
@@ -72,9 +81,12 @@ function getCurrentPosition() {
 
 function showTemperature(response) {
   console.log(response);
+
+  celsiusTemperature = response.data.main.temp;
+
   let temperature = Math.round(response.data.main.temp);
   let currentTemperature = document.querySelector("#temperature");
-  currentTemperature.innerHTML = `${temperature} ℃`;
+  currentTemperature.innerHTML = `${temperature}`;
 
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
