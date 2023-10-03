@@ -51,9 +51,9 @@ let currentDate = new Date();
 actualDateInput.innerHTML = dateFormated(currentDate);
 
 function search(city) {
-  let apiKey = "515c9ddbeb3cda9061acfab71031839e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  let key = "30010848d4a1co0dd7fd9fe7b1ee0a4t";
+  let urlKey = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
+  axios.get(urlKey).then(showTemperature);
   console.log(apiUrl);
 }
 function searchCity(event) {
@@ -68,10 +68,10 @@ let form = document.querySelector("#city-search");
 form.addEventListener("submit", searchCity);
 
 function showPosition(position) {
-  let key = "e450bc345a80a08ada69fd5c714d871d";
+  let key = "30010848d4a1co0dd7fd9fe7b1ee0a4t";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let urlKey = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
+  let urlKey = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${key}&units=metric`;
   axios.get(urlKey).then(showTemperature);
 }
 
@@ -82,33 +82,33 @@ function getCurrentPosition() {
 function showTemperature(response) {
   console.log(response);
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.temperature.current;
 
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.temperature.current);
   let currentTemperature = document.querySelector("#temperature");
   currentTemperature.innerHTML = `${temperature}`;
 
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.name}`;
+  h1.innerHTML = `${response.data.city}`;
 
   let cityElement = document.querySelector("h1");
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.city;
 
   let weatherDescription = document.querySelector("#weather-description");
-  weatherDescription.innerHTML = response.data.weather[0].description;
+  weatherDescription.innerHTML = response.data.condition.description;
 
   let windInfo = document.querySelector("#windValue");
-  windInfo.innerHTML = `${Math.round(response.data.wind.speed)} m/sec`;
+  windInfo.innerHTML = `${Math.round(response.data.wind.speed)} Km/h`;
 
   let humidityInfo = document.querySelector("#humidityValue");
-  humidityInfo.innerHTML = `${response.data.main.humidity} %`;
+  humidityInfo.innerHTML = `${response.data.temperature.humidity} %`;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 function displayForecast() {
