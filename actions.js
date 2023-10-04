@@ -80,6 +80,7 @@ function getCurrentPosition() {
 }
 
 function showTemperature(response) {
+  console.log(response);
   celsiusTemperature = response.data.temperature.current;
 
   let temperature = Math.round(response.data.temperature.current);
@@ -114,37 +115,55 @@ function showTemperature(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let key = "30010848d4a1co0dd7fd9fe7b1ee0a4t";
-  let lat = position.coordinates.latitude;
-  let lon = position.coordinates.longitude;
+  let lat = coordinates.latitude;
+  let lon = coordinates.longitude;
   let urlKey = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${key}&units=metric`;
   axios.get(urlKey).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` 
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` 
     <div class="col">
         <div class="card" style="margin-top: 0;">
-          <p class="week-day">${day}. 08 </br> </p>
+          <p class="week-day">${formatDay(forecastDay.time)}.</br> </p>
           <img
-            src="Images/iconsnublado.png"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
             class="card-img-middle"
-            alt="cloudy"
-            width="80"
+            alt="${forecastDay.condition.description}"
+            width="42"
           />
            <div class="card-body">
-              <p> <span class="max-temperature">23 </span>| 19 °C </br>Very cloudy</p>
+              <p> <span class="max-temperature">${Math.round(
+                forecastDay.temperature.maximum
+              )} </span>| ${Math.round(forecastDay.temperature.minimum)} °C </p>
+      <div class="forecast-weather-description"> ${
+        forecastDay.condition.description
+      }
+      </div>
             </div>
         </div>
       </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

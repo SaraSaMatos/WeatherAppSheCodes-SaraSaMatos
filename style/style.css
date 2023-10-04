@@ -80,6 +80,10 @@ h1 {
 .card-body {
   text-align: center;
 }
+.forecast-weather-description {
+  text-transform: capitalize;
+  font-weight: bold;
+}
 .card-img-middle {
   display: block;
   margin: 0 auto;
