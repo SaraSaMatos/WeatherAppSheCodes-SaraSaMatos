@@ -54,7 +54,7 @@ function search(city) {
   let key = "30010848d4a1co0dd7fd9fe7b1ee0a4t";
   let urlKey = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
   axios.get(urlKey).then(showTemperature);
-  console.log(apiUrl);
+  console.log(urlKey);
 }
 function searchCity(event) {
   event.preventDefault();
@@ -80,8 +80,6 @@ function getCurrentPosition() {
 }
 
 function showTemperature(response) {
-  console.log(response);
-
   celsiusTemperature = response.data.temperature.current;
 
   let temperature = Math.round(response.data.temperature.current);
@@ -109,9 +107,21 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
-function displayForecast() {
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let key = "30010848d4a1co0dd7fd9fe7b1ee0a4t";
+  let lat = position.coordinates.latitude;
+  let lon = position.coordinates.longitude;
+  let urlKey = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${key}&units=metric`;
+  axios.get(urlKey).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
