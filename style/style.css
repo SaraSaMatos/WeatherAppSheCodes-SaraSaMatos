@@ -1,5 +1,10 @@
 body {
   font-family: PT-serif;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(239, 246, 249) 0%,
+    rgb(206, 239, 253) 90%
+  );
 }
 h1 {
   text-align: center;
@@ -10,6 +15,8 @@ h1 {
   max-width: 900px;
   margin: 30px auto;
   padding: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 .actual-moment {
   text-align: center;
