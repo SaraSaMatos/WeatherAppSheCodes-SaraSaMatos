@@ -97,7 +97,7 @@ function showTemperature(response) {
   weatherDescription.innerHTML = response.data.condition.description;
 
   let windInfo = document.querySelector("#windValue");
-  windInfo.innerHTML = `${Math.round(response.data.wind.speed)} Km/h`;
+  windInfo.innerHTML = `${Math.round(response.data.wind.speed)} m/sec`;
 
   let humidityInfo = document.querySelector("#humidityValue");
   humidityInfo.innerHTML = `${response.data.temperature.humidity} %`;

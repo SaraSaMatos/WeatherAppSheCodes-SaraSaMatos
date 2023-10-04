@@ -18,6 +18,10 @@ h1 {
   border-radius: 20px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
+.btn btn-secondary,
+.btn btn-primary {
+  padding: 2px;
+}
 .actual-moment {
   text-align: center;
 }
@@ -61,6 +65,9 @@ h1 {
 .advice {
   display: block;
   margin: 0 10px;
+}
+.app-advice {
+  font-size: 15px;
 }
 .card-extrainfo {
   list-style: none;
